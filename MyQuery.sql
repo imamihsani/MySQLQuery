@@ -1,7 +1,7 @@
 -- UPDATE WHERE
   UPDATE nama_database.`nama_tabel`
   SET `kolom_yg_mau_diubah` = 'diganti ke ini'
-  WHERE `kolom_yg_mau_diubah` = 'ini';
+  WHERE `kolom_yg_mau_diubah` = 'misalnya ini';
 -- 
 
 -- BIKIN FOREIGN KEY DARI TABEL ANAK KE TABEL UTAMA

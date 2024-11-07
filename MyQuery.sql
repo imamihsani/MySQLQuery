@@ -14,3 +14,10 @@
   ALTER TABLE msa_web.win_proyek_kronologis 
   DROP FOREIGN KEY fk_kronologis_proyek;
 --
+
+-- LIHAT DATA DUPLIKAT 
+  SELECT COUNT(CustomerID), Country -- yg mau dicari adalah kolom Country ada berapa data yang sama berdasarkan customer id yang jadi primary key
+  FROM Customers -- ini tabel
+  GROUP BY Country -- ini kolom
+  HAVING COUNT(CustomerID) > 2; -- ini bisa diatur , contoh ini misal mau nyari data yang sama lebih dari 2
+--

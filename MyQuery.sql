@@ -10,6 +10,9 @@
   FOREIGN KEY (proyek_id) REFERENCES msa_web.win_proyek(proyek_id) -- ini tabel induk/utama
   ON DELETE CASCADE
   ON UPDATE CASCADE;
+  -- KALAU DI TABEL UTAMA KOLOM YG MAU DIHUBUNGIN KE TABEL ANAK BUKAN PK
+  ALTER TABLE ticketapps.pesanan
+  ADD CONSTRAINT unique_kode_pesanan UNIQUE (kode_pesanan);
   -- BATAL
   ALTER TABLE msa_web.win_proyek_kronologis 
   DROP FOREIGN KEY fk_kronologis_proyek;

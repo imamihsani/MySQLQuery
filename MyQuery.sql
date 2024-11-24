@@ -13,6 +13,8 @@
   -- KALAU DI TABEL UTAMA KOLOM YG MAU DIHUBUNGIN KE TABEL ANAK BUKAN PK
   ALTER TABLE ticketapps.pesanan
   ADD CONSTRAINT unique_kode_pesanan UNIQUE (kode_pesanan);
+  -- BATAL UNIQUE FK
+  ALTER TABLE ticketapps.history_pengerjaan DROP INDEX unique_kode_pesanan;
   -- BATAL FK
   ALTER TABLE msa_web.win_proyek_kronologis 
   DROP FOREIGN KEY fk_kronologis_proyek;

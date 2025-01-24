@@ -52,3 +52,14 @@
     END$$
     DELIMITER ;
 --
+
+-- MIGRASI/COPY/MINDAH DATA DARI TABEL A KE TABEL B
+  INSERT INTO nama_database.tabel_b (proyek_id, item, tanggal_start_aktual, tanggal_end_aktual) --kolom kolom tabel b yang mau buat nampung value dari tabel a
+  SELECT 
+      id AS proyek_id, -- kiri tabel a, kanan tabel b
+      'Mitra' AS item, -- Pendefinisian nama kolom jadi value 
+      tanggal_start_mitra AS tanggal_start_aktual, 
+      tanggal_end_mitra AS tanggal_end_aktual
+  FROM 
+      nama_database.tabel_a;
+--

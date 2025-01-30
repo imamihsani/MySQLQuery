@@ -63,7 +63,7 @@
   FROM 
       nama_database.tabel_a;
 --
---
+-- MIGRASI/COPY/MINDAH DATA DARI TABEL A KE TABEL B TAPI PAKE LEFT JOIN
 INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
 SELECT 
     p.id AS proyek_id,
@@ -76,7 +76,7 @@ FROM
 LEFT JOIN 
     msa.`hrd - karyawan` k ON k.nama = p.nama_drafter;
 --
---
+-- MIGRASI/COPY/MINDAH DATA DARI TABEL A KE TABEL B TAPI PAKE LEFT JOIN LEBIH DARI SATU JOIN TERUS SATU KOLOM DIIMPLODE
 INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
 SELECT 
     p.id AS proyek_id,

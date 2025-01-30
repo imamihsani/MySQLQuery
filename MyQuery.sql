@@ -63,37 +63,39 @@
   FROM 
       nama_database.tabel_a;
 --
+
 -- MIGRASI/COPY/MINDAH DATA DARI TABEL A KE TABEL B TAPI PAKE LEFT JOIN
-INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
-SELECT 
-    p.id AS proyek_id,
-    'Drafter' AS role,
-    k.recid AS member,
-    p.tanggal_start_drafter AS tanggal_start,
-    p.tanggal_end_drafter AS tanggal_end
-FROM 
-    msa.proyek_copy p
-LEFT JOIN 
-    msa.`hrd - karyawan` k ON k.nama = p.nama_drafter;
+  INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
+  SELECT 
+      p.id AS proyek_id,
+      'Drafter' AS role,
+      k.recid AS member,
+      p.tanggal_start_drafter AS tanggal_start,
+      p.tanggal_end_drafter AS tanggal_end
+  FROM 
+      msa.proyek_copy p
+  LEFT JOIN 
+      msa.`hrd - karyawan` k ON k.nama = p.nama_drafter;
 --
+
 -- MIGRASI/COPY/MINDAH DATA DARI TABEL A KE TABEL B TAPI PAKE LEFT JOIN LEBIH DARI SATU JOIN TERUS SATU KOLOM DIIMPLODE
-INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
-SELECT 
-    p.id AS proyek_id,
-    'Waspang' AS role,
-    NULLIF(TRIM(BOTH ',' FROM CONCAT(
-        CASE WHEN k1.recid IS NOT NULL THEN k1.recid ELSE '' END,
-        CASE WHEN k2.recid IS NOT NULL THEN CONCAT(',', k2.recid) ELSE '' END,
-        CASE WHEN k3.recid IS NOT NULL THEN CONCAT(',', k3.recid) ELSE '' END
-    )), '') AS member,
-    p.tanggal_start_waspang AS tanggal_start,
-    p.tanggal_end_waspang AS tanggal_end
-FROM 
-    msa.proyek_copy p
-LEFT JOIN 
-    msa.`hrd - karyawan` k1 ON k1.nama = p.nama_waspang
-LEFT JOIN 
-    msa.`hrd - karyawan` k2 ON k2.nama = p.nama_waspang2
-LEFT JOIN 
-    msa.`hrd - karyawan` k3 ON k3.nama = p.nama_waspang3;
+  INSERT INTO msa.eng_proyek_team (proyek_id, role, member, tanggal_start, tanggal_end)
+  SELECT 
+      p.id AS proyek_id,
+      'Waspang' AS role,
+      NULLIF(TRIM(BOTH ',' FROM CONCAT(
+          CASE WHEN k1.recid IS NOT NULL THEN k1.recid ELSE '' END,
+          CASE WHEN k2.recid IS NOT NULL THEN CONCAT(',', k2.recid) ELSE '' END,
+          CASE WHEN k3.recid IS NOT NULL THEN CONCAT(',', k3.recid) ELSE '' END
+      )), '') AS member,
+      p.tanggal_start_waspang AS tanggal_start,
+      p.tanggal_end_waspang AS tanggal_end
+  FROM 
+      msa.proyek_copy p
+  LEFT JOIN 
+      msa.`hrd - karyawan` k1 ON k1.nama = p.nama_waspang
+  LEFT JOIN 
+      msa.`hrd - karyawan` k2 ON k2.nama = p.nama_waspang2
+  LEFT JOIN 
+      msa.`hrd - karyawan` k3 ON k3.nama = p.nama_waspang3;
 --

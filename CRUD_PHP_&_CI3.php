@@ -1,3 +1,4 @@
+<?php
 public function getDataBuku() {
     $DB = $this->load->database('default',TRUE);
     $sql = "SELECT * FROM buku";

@@ -4,7 +4,7 @@
   WHERE `kolom_yg_mau_diubah` = 'misalnya ini';
 -- 
 
--- UPDATE VALUE YANG SAMA DARI KOLOM A KE KOLOM B
+-- UPDATE VALUE YANG SAMA DARI KOLOM A KE KOLOM B (SEMUA ROW TANPA WHERE)
   UPDATE `msa`.`sls - boq`
   SET `qty_project` = `Volume`; -- kolom qty_project mau dibikin sama kaya volume
 --

@@ -4,6 +4,11 @@
   WHERE `kolom_yg_mau_diubah` = 'misalnya ini';
 -- 
 
+-- UPDATE VALUE YANG SAMA DARI KOLOM A KE KOLOM B
+  UPDATE `msa`.`sls - boq`
+  SET `qty_project` = `Volume`; -- kolom qty_project mau dibikin sama kaya volume
+--
+
 -- BIKIN FOREIGN KEY DARI TABEL ANAK KE TABEL UTAMA
   ALTER TABLE msa_web.win_proyek_kronologis -- tabel anak
   ADD CONSTRAINT fk_proyek_kronologis

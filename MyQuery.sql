@@ -104,3 +104,13 @@
   LEFT JOIN 
       msa.`hrd - karyawan` k3 ON k3.nama = p.nama_waspang3;
 --
+
+-- CREATE EVENT FLUSH HOSTS OTOMATIS SETIAP JAM 9 MALAM
+  CREATE DEFINER=`root`@`%` EVENT `flush_hosts_event_otomatis`
+	ON SCHEDULE
+		EVERY 1 DAY STARTS '2025-05-08 21:00:00'
+	ON COMPLETION NOT PRESERVE
+	ENABLE
+	COMMENT ''
+	DO FLUSH HOSTS
+--

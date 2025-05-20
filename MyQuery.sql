@@ -114,3 +114,36 @@
 	COMMENT ''
 	DO FLUSH HOSTS
 --
+
+-- NYARI VALUE 0000-00-00 TANPA EROR DALAM KOLOM TIPE DATA DATE --
+	SELECT * FROM msa.proyek
+	WHERE 
+	  tanggal_end_admin < '0001-01-01' OR
+	  tanggal_end_assembly < '0001-01-01' OR
+	  tanggal_end_drafter < '0001-01-01' OR
+	  tanggal_end_jointer < '0001-01-01' OR
+	  tanggal_end_mitra < '0001-01-01' OR
+	  tanggal_end_pmo < '0001-01-01' OR
+	  tanggal_end_surveyor < '0001-01-01' OR
+	  tanggal_end_teknisi < '0001-01-01' OR
+	  tanggal_end_waspang < '0001-01-01' OR
+	  tanggal_invoice_retensi < '0001-01-01' OR
+	  tanggal_pra_invoice < '0001-01-01' OR
+	  tanggal_start_admin < '0001-01-01' OR
+	  tanggal_start_assembly < '0001-01-01' OR
+	  tanggal_start_drafter < '0001-01-01' OR
+	  tanggal_start_jointer < '0001-01-01' OR
+	  tanggal_start_mitra < '0001-01-01' OR
+	  tanggal_start_pmo < '0001-01-01' OR
+	  tanggal_start_surveyor < '0001-01-01' OR
+	  tanggal_start_teknisi < '0001-01-01' OR
+	  tanggal_start_waspang < '0001-01-01' OR
+	  target_bast < '0001-01-01' OR
+	  target_close < '0001-01-01' OR
+	  target_commisioning < '0001-01-01' OR
+	  target_invoice < '0001-01-01' OR
+	  target_reporting < '0001-01-01' OR
+	  target_start < '0001-01-01' OR
+	  target_survey < '0001-01-01' OR
+	  tgl_pengajuan_batal < '0001-01-01';
+--
